@@ -5,6 +5,9 @@ from dotenv import load_dotenv
 import json
 
 load_dotenv()
+boto3.setup_default_session(profile_name=os.getenv('profile_name'))
+
+
 def kendraSearch(question):
     kendra = boto3.client('kendra')
     kendra_response = kendra.retrieve(
@@ -13,12 +16,11 @@ def kendraSearch(question):
         PageNumber=1,
         PageSize=15
     )
-    print(kendra_response)
-    return invokeLLM(question,kendra_response)
+    return invokeLLM(question, kendra_response)
+
 
 def invokeLLM(question, kendra_response):
     # Setup Bedrock client
-    boto3.setup_default_session(profile_name=os.getenv('profile_name'))
     bedrock = boto3.client('bedrock', 'us-east-1', endpoint_url='https://bedrock.us-east-1.amazonaws.com')
 
     modelId = 'anthropic.claude-v2'
