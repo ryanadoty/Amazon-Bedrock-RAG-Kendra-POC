@@ -21,8 +21,8 @@ When a user interacts with the GenAI app, the flow is as follows:
 # How to use this Repo:
 
 ## Prerequisites:
-1. Amazon Kendra Index has been created (IF NOT it is covered in step 3)
-2. Amazon Kendra Index has a datasource configured and synced (IF NOT it is covered in step 4)
+1. Amazon Kendra Index has been created (IF NOT ALREADY CREATED it is covered in step 3)
+2. Amazon Kendra Index has a datasource configured and synced (IF NOT ALREADY CREATED it is covered in step 4)
 3. Amazon Bedrock Access and CLI Credentials
 4. Appropriate permissions to configure Amazon Kendra Index and Amazon Kendra Data Sources
 
