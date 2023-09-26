@@ -5,6 +5,19 @@ This is sample code demonstrating the use of Amazon Bedrock and Generative AI to
 The goal of this repo is to provide users the ability to use Amazon Bedrock and generative AI to take natural language questions, and answer questions against indexed documents in Amazon Kendra.
 This repo comes with a basic frontend to help users stand up a proof of concept in just a few minutes.
 
+The architecture and flow of the sample application will be:
+
+![Alt text](kendra-rag-architecture.png "POC Architecture")
+
+When a user interacts with the GenAI app, the flow is as follows:
+
+1. The user makes a request to the GenAI app (app.py).
+2. The app issues a search query to the Amazon Kendra index based on the user request.
+3. The index returns search results with excerpts of relevant documents from the ingested data.
+4. The app sends the user request and along with the data retrieved from the index as context in the LLM prompt.
+5. The LLM returns a succinct response to the user request based on the retrieved data.
+6. The response from the LLM is sent back to the user.
+
 # How to use this Repo:
 
 ## Step 1:
@@ -59,7 +72,7 @@ Now that you have cloned the repo, created a virtual environment, set the enviro
 to sync a data source within Kendra. As seen in the screenshot below, you can configure the specific datasource that you would like to sync. For more information
 on data sources feel free to refer to this [documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html).
 
-![Alt text](kendra_data_source.png "Title")
+![Alt text](kendra_data_source.png "Kendra Data Source")
 
 # Step 5:
 As soon as you have successully synced your data source with your Kendra Index, you application should be ready to go. To start up the application with its basic frontend you simply need to run the following command in your terminal while in the root of the repositories directory:
