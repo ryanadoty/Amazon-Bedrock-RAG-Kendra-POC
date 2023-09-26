@@ -62,9 +62,12 @@ kendra_index=<kendra_index>
 ```
 Please ensure that your AWS CLI Profile has access to Amazon Bedrock, and your Amazon Kendra Index has been created within your AWS account!
 
-You can find your Kendra Index ID in the console as seen in the screenshot below:
-
-![Alt text](images/kendra_screen_shot.png "Kendra Index")
+***If you don't have your Amazon Kendra Index created yet, please follow the steps below:***
+1. Go to Amazon Kendra in your AWS Console and click on "Create an Index" ![Alt text](images/Amazon_kendra_homepage.png "Kendra Homepage")
+2. Fill out the "Specify Index details" page, and provide Kendra a role that can access CloudWatch Logs. ![Alt text](images/kendra_specify_index_details.png "Kendra Specify Details Page")
+3. Fill out the "Configure Access Control" page ![Alt text](images/kendra_access_control.png "Kendra Access Control")
+4. Select the appropriate provisioning editions and create ![Alt text](images/specify_provisioning_kendra.png "Kendra Edition Selection")
+5. You can find your Kendra Index ID in the console as seen in the screenshot: ![Alt text](images/kendra_screen_shot.png "Kendra Index")
 
 Depending on the region and model that you are planning to use Amazon Bedrock in, you may need to reconfigure line 44 & 46 in the kendra_bedrock_query.py file:
 
