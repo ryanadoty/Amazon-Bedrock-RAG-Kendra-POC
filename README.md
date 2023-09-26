@@ -33,14 +33,18 @@ pip install -r requirements.txt
 ```
 
 ## Step 3:
-Now that all of the requirements have been successfully installed in your virtual environment we can begin configuring environment variables.
+Now that that the requirements have been successfully installed in your virtual environment we can begin configuring environment variables.
 You will first need to create a .env file in the root of this repo. Within the .env file you just created you will need to configure the .env to contain:
 
 ```
 profile_name=<aws_cli_profile_name>
 kendra_index=<kendra_index>
 ```
-Please ensure that your AWS CLI Profile has access to Amazon Bedrock!
+Please ensure that your AWS CLI Profile has access to Amazon Bedrock, and your Amazon Kendra Index has been created within your AWS account!
+
+You can find your Kendra Index ID in the console as seen in the screenshot below:
+
+![Alt text](kendra_screen_shot.png "Kendra Index")
 
 Depending on the region and model that you are planning to use Amazon Bedrock in, you may need to reconfigure line 44 & 46 in the kendra_bedrock_query.py file:
 
@@ -49,3 +53,18 @@ bedrock = boto3.client('bedrock', 'us-east-1', endpoint_url='https://bedrock.us-
 
 modelId = 'anthropic.claude-v2'
 ```
+
+# Step 4:
+Now that you have cloned the repo, created a virtual environment, set the environment variables, and provisioned your Kendra index, it is now time
+to sync a data source within Kendra. As seen in the screenshot below, you can configure the specific datasource that you would like to sync. For more information
+on data sources feel free to refer to this [documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html).
+
+![Alt text](kendra_data_source.png "Title")
+
+# Step 5:
+As soon as you have successully synced your data source with your Kendra Index, you application should be ready to go. To start up the application with its basic frontend you simply need to run the following command in your terminal while in the root of the repositories directory:
+
+```
+streamlit run app.py
+```
+As soon as the application is up and running in your browser of choice you can begin asking natural language questions against the documents stored within your Amazon Kendra index. 
