@@ -7,7 +7,7 @@ This repo comes with a basic frontend to help users stand up a proof of concept 
 
 The architecture and flow of the sample application will be:
 
-![Alt text](kendra-rag-architecture.png "POC Architecture")
+![Alt text](images/kendra-rag-architecture.png "POC Architecture")
 
 When a user interacts with the GenAI app, the flow is as follows:
 
@@ -20,6 +20,12 @@ When a user interacts with the GenAI app, the flow is as follows:
 
 # How to use this Repo:
 
+## Prerequisites:
+1. Amazon Kendra Index has been created (IF NOT it is covered in step 3)
+2. Amazon Kendra Index has a datasource configured and synced (IF NOT it is covered in step 4)
+3. Amazon Bedrock Access and CLI Credentials
+4. Appropriate permissions to configure Amazon Kendra Index and Amazon Kendra Data Sources
+
 ## Step 1:
 The first step of utilizing this repo is performing a git clone of the repository.
 
@@ -31,22 +37,23 @@ After cloning the repo onto your local machine, open it up in your favorite code
 the app.py file, the kendra_bedrock_query.py file, and the requirements.txt. The app.py file houses the frontend application (a streamlit app). The kendra_bedrock_query.py file houses the logic of the application, including the Kendra Retrieve API calls and Amazon Bedrock API invocations.
 
 ## Step 2:
-Set up a python virtual environment, and ensure that you are using Python 3.9. The virtual environment will be extremely useful when you begin installing the requirements.
-After the virtual environment is created, ensure that it is activated, following the activation steps of the environment tool you are using. Likely:
+Set up a python virtual environment in the root directory of the repository and ensure that you are using Python 3.9. This can be done by running the following commands:
 ```
-source venv/bin activate 
+pip install virtualenv
+python<version> -m venv <virtual-environment-name>
 ```
-or
+The virtual environment will be extremely useful when you begin installing the requirements. If you need more clarification on the creation of the virtual environment please refer to this [blog](https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/).
+After the virtual environment is created, ensure that it is activated, following the activation steps of the virtual environment tool you are using. Likely:
 ```
-conda activate myenv
+source <virtual-environemnt-name>/bin activate 
 ```
-After your virtual environment has been created and activated, you can install all of the requirements found in the requirements.txt file by running this command in your terminal:
+After your virtual environment has been created and activated, you can install all the requirements found in the requirements.txt file by running this command in your terminal:
 ```
 pip install -r requirements.txt
 ```
 
 ## Step 3:
-Now that that the requirements have been successfully installed in your virtual environment we can begin configuring environment variables.
+Now that the requirements have been successfully installed in your virtual environment we can begin configuring environment variables.
 You will first need to create a .env file in the root of this repo. Within the .env file you just created you will need to configure the .env to contain:
 
 ```
@@ -57,7 +64,7 @@ Please ensure that your AWS CLI Profile has access to Amazon Bedrock, and your A
 
 You can find your Kendra Index ID in the console as seen in the screenshot below:
 
-![Alt text](kendra_screen_shot.png "Kendra Index")
+![Alt text](images/kendra_screen_shot.png "Kendra Index")
 
 Depending on the region and model that you are planning to use Amazon Bedrock in, you may need to reconfigure line 44 & 46 in the kendra_bedrock_query.py file:
 
@@ -67,15 +74,22 @@ bedrock = boto3.client('bedrock', 'us-east-1', endpoint_url='https://bedrock.us-
 modelId = 'anthropic.claude-v2'
 ```
 
-# Step 4:
+## Step 4:
 Now that you have cloned the repo, created a virtual environment, set the environment variables, and provisioned your Kendra index, it is now time
 to sync a data source within Kendra. As seen in the screenshot below, you can configure the specific datasource that you would like to sync. For more information
 on data sources feel free to refer to this [documentation](https://docs.aws.amazon.com/kendra/latest/dg/hiw-data-source.html).
 
-![Alt text](kendra_data_source.png "Kendra Data Source")
+![Alt text](images/kendra_data_source.png "Kendra Data Source")
 
-# Step 5:
-As soon as you have successully synced your data source with your Kendra Index, you application should be ready to go. To start up the application with its basic frontend you simply need to run the following command in your terminal while in the root of the repositories directory:
+***If you don't have your own sample data, or sample data source you can leverage the sample datasource within Amazon Kendra data sources as shown below:***
+
+1. On the data sources tab, click on the add dataset option as seen in the image: ![Alt text](images/sample_data_sources.png "Kendra Sample Data Source")
+2. Then define the data sources attributes such as the data source name and click add data source: ![Alt text](images/sample_data_source_configuration.png "Kendra Sample Data Source Config")
+3. This will automatically create the data source and triggers a sync. You will now be able to ask questions against Sample AWS Documentation that covers Kendra, EC2, S3 and Lambda in your front end application.
+
+
+## Step 5:
+As soon as you have successfully synced your data source with your Kendra Index, you application should be ready to go. To start up the application with its basic frontend you simply need to run the following command in your terminal while in the root of the repositories' directory:
 
 ```
 streamlit run app.py
