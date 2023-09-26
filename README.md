@@ -12,11 +12,11 @@ The architecture and flow of the sample application will be:
 When a user interacts with the GenAI app, the flow is as follows:
 
 1. The user makes a request to the GenAI app (app.py).
-2. The app issues a search query to the Amazon Kendra index based on the user request.
-3. The index returns search results with excerpts of relevant documents from the ingested data.
-4. The app sends the user request and along with the data retrieved from the index as context in the LLM prompt.
-5. The LLM returns a succinct response to the user request based on the retrieved data.
-6. The response from the LLM is sent back to the user.
+2. The app issues a search query to the Amazon Kendra index based on the user request. (kendra_bedrock_query.py)
+3. The index returns search results with excerpts of relevant documents from the ingested data. (kendra_bedrock_query.py)
+4. The app sends the user request and along with the data retrieved from the index as context in the LLM prompt. (kendra_bedrock_query.py)
+5. The LLM returns a succinct response to the user request based on the retrieved data. (kendra_bedrock_query.py)
+6. The response from the LLM is sent back to the user. (app.py)
 
 # How to use this Repo:
 
