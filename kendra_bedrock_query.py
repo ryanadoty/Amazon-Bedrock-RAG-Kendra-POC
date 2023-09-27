@@ -59,9 +59,10 @@ Use the provided examples as reference
 Question: {question}
 
 Context: {kendra_response}
+
 ###
 
-\n\nAssitant:
+\n\nAssistant:
 
 """
     # body of data with parameters that is passed into the bedrock invoke model request
