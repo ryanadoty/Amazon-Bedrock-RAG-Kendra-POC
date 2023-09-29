@@ -1,5 +1,4 @@
 import boto3
-import botocore
 import os
 from dotenv import load_dotenv
 import json
@@ -50,7 +49,7 @@ def invokeLLM(question, kendra_response):
     # TODO: FEEL FREE TO EDIT THIS PROMPT TO CATER TO YOUR USE CASE
     prompt_data = f"""\n\nHuman:    
 Answer the following question to the best of your ability based on the context provided.
-Provide an answer and provide sources and the source link to where the relevant infomration can be found. Include this at the end of the response
+Provide an answer and provide sources and the source link to where the relevant information can be found. Include this at the end of the response
 Do not include information that is not relevant to the question.
 Only provide information based on the context provided, and do not make assumptions
 Only Provide the source if relevant information came from that source in your answer
