@@ -94,7 +94,7 @@ on data sources feel free to refer to this [documentation](https://docs.aws.amaz
 
 
 ## Step 5:
-As soon as you have successfully synced your data source with your Kendra Index, you application should be ready to go. To start up the application with its basic frontend you simply need to run the following command in your terminal while in the root of the repositories' directory:
+As soon as you have successfully synced your data source with your Kendra Index, your application should be ready to go. To start up the application with its basic frontend you simply need to run the following command in your terminal while in the root of the repositories' directory:
 
 ```
 streamlit run app.py
