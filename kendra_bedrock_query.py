@@ -31,7 +31,7 @@ def kendraSearch(question):
 
 def invokeLLM(question, kendra_response):
     """
-    This function takes in the question from the user, along with the Kendra reponses as context to generate an answer
+    This function takes in the question from the user, along with the Kendra responses as context to generate an answer
     for the user on the frontend.
     :param question: The question the user is asking that was asked via the frontend input text box.
     :param kendra_response: The response from the Kendra document retrieve query, used as context to generate a better
@@ -40,7 +40,7 @@ def invokeLLM(question, kendra_response):
     question.
     """
     # Setup Bedrock client
-    bedrock = boto3.client('bedrock', 'us-east-1', endpoint_url='https://bedrock.us-east-1.amazonaws.com')
+    bedrock = boto3.client('bedrock-runtime', 'us-east-1', endpoint_url='https://bedrock.us-east-1.amazonaws.com')
     # configure model specifics such as specific model
     modelId = 'anthropic.claude-v2'
     accept = 'application/json'
