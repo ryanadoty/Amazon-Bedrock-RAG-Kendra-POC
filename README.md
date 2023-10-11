@@ -25,8 +25,7 @@ When a user interacts with the GenAI app, the flow is as follows:
 2. Amazon Kendra Index has a datasource configured and synced (IF NOT ALREADY CREATED it is covered in step 4).
 3. Amazon Bedrock Access and CLI Credentials.
 4. Appropriate permissions to configure Amazon Kendra Index and Amazon Kendra Data Sources.
-5. If you are going to perform a git clone of this repo, and its your first time cloning from the AWS Gitlab, please ensure your machine is configured properly by following [these directions](https://w.amazon.com/bin/view/Users/vithoesl/GettingStartedWithGitlab/).
-6. Ensure Python 3.9 installed on your machine, it is the most stable version of Python for the packages we will be using, it can be downloaded [here](https://www.python.org/downloads/release/python-3911/).
+5. Ensure Python 3.9 installed on your machine, it is the most stable version of Python for the packages we will be using, it can be downloaded [here](https://www.python.org/downloads/release/python-3911/).
 
 ## Step 1:
 The first step of utilizing this repo is performing a git clone of the repository.
