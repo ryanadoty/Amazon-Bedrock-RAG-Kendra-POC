@@ -40,7 +40,7 @@ def invokeLLM(question, kendra_response):
     question.
     """
     # Setup Bedrock client
-    bedrock = boto3.client('bedrock-runtime', 'us-east-1', endpoint_url='https://bedrock.us-east-1.amazonaws.com')
+    bedrock = boto3.client('bedrock-runtime', 'us-east-1', endpoint_url='https://bedrock-runtime.us-east-1.amazonaws.com')
     # configure model specifics such as specific model
     modelId = 'anthropic.claude-v2'
     accept = 'application/json'
