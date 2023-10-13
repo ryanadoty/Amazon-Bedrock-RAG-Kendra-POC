@@ -104,3 +104,5 @@ As soon as you have successfully synced your data source with your Kendra Index,
 streamlit run app.py
 ```
 As soon as the application is up and running in your browser of choice you can begin asking natural language questions against the documents stored within your Amazon Kendra index. 
+
+## ***The contents of this repository represent my viewpoints and not of my past or current employers, including Amazon Web Services (AWS). All third-party libraries, modules, plugins, and SDKs are the property of their respective owners.***
