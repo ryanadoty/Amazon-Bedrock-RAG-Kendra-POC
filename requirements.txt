@@ -52,7 +52,7 @@ tornado==6.3.3
 typing_extensions==4.8.0
 tzdata==2023.3
 tzlocal==5.0.1
-urllib3==1.26.18
+urllib3==1.26.19
 validators==0.22.0
 wheel==0.38.4
 zipp==3.17.0
